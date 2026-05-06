@@ -1,0 +1,1 @@
+names= {"ravi"="westus", "gourav"="eastus","gourav"="westeurope"}

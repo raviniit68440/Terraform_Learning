@@ -1,0 +1,1 @@
+rg_name2 = "testrg2"
