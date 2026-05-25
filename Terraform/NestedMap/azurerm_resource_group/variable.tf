@@ -1,0 +1,2 @@
+variable "ravirgs" {}
+variable "ravistg" {}
