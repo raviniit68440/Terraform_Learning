@@ -1,0 +1,11 @@
+rg_name = "resource1"
+location = "West Europe"
+vnet_name = "vnet0305"
+vnet_address_space = ["192.168.1.0/24"]
+subnet_name = "AzureBastionSubnet"
+ subnet_address_prefixes     = ["192.168.1.224/27"]
+ public_ip_name = "bastionpip"
+ public_ip_allocation_method   = "Static"
+  public_ip_sku                 = "Standard"
+  bastion_host_name= "bastion_host"
+  ip_congiguration_name="configuration"
