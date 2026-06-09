@@ -2,6 +2,7 @@ resource "azurerm_resource_group" "resources" {
 for_each = var.common
 name = each.key
 location=each.value.location
+
 }
 
 

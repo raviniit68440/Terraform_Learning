@@ -1,3 +1,5 @@
+rg="rg1"
+location="eastus"
 
 vnets = {
   vnet1 = {

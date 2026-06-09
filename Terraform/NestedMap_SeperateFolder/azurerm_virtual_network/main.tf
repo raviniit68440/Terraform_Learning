@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "resources" {
-  name       = "rg1"
-  location   = "eastus"
+  name       = var.rg
+  location   = var.location
 }
 
 resource "azurerm_virtual_network" "virtualnetwork" {

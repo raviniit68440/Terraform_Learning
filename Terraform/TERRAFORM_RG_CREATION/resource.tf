@@ -3,7 +3,7 @@ terraform {
   required_providers {                     # Block to define which providers Terraform will use
     azurerm = {                            # Azure Resource Manager provider configuration
       source  = "hashicorp/azurerm"        # Tells Terraform to download provider from HashiCorp registry
-      version = "4.70.0"                   # Locks provider version for consistency across environments
+      version = "4.71.0"                   # Locks provider version for consistency across environments
     }
   }
 }
