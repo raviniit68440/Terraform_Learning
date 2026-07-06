@@ -1,22 +1,20 @@
 resource_group= {
     rg1 ={
+        storage_account_name = "stg1"
         location="eastasia"
-    }
-    rg2 ={
-        location="westus"
-    }
-    rg3 ={
-        location="centralindia"
-    }
-}
-
-storage = {
-    stg1={
         account_tier = "Standard"
         account_replication_type = "LRS"
     }
-     stg2={
-        account_tier = "Premium"
-        account_replication_type = "GRS"
+    rg2 ={
+        storage_account_name = "stg2"
+        location="westus"
+        account_tier = "Standard"
+        account_replication_type = "LRS"
+    }
+    rg3 ={
+        storage_account_name = "stg3"
+        location="centralindia"
+        account_tier = "Standard"
+        account_replication_type = "LRS"
     }
 }
