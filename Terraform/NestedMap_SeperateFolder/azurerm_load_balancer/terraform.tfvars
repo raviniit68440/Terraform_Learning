@@ -1,0 +1,16 @@
+resource_group = "raviRG0305"
+location = "eastasia"
+PIP_name = "gautamPIP"
+PIP_allowed_method = "Static"
+lb_name = "gautamlb"
+lb_fip_name = "gautamPIPLB"
+lbpool_name = "gautambpool"
+probe_name = "http-probe"
+probe_protocol = "Http"
+probe_port = 80
+probe_request_path    = "/"
+  lbrule_name                           = "http-rule"
+  lbrule_protocol                       = "Tcp"
+  lbrule_frontend_port                  = 80
+  lbrule_backend_port                   = 80
+  lbrule_frontend_ip_configuration_name = "PublicIPAddress"

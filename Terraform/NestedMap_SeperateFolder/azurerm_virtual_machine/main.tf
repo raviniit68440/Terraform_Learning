@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "resource_group" {
   name     = "${var.prefix}-resources"
   location = var.location
 }
@@ -7,12 +7,12 @@ resource "azurerm_virtual_network" "main" {
   name                = "${var.prefix}-network"
   address_space       = var.vnet_address_space
   location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = azurerm_resource_group.resource_group.name
 }
 
 resource "azurerm_subnet" "internal" {
   name                 = "${var.prefix}-subnet"
-  resource_group_name  = azurerm_resource_group.example.name
+  resource_group_name  = azurerm_resource_group.resource_group.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = var.subnet_address_prefixes
 }
@@ -21,7 +21,7 @@ resource "azurerm_network_interface" "main" {
   for_each = var.virtual_machines
   name                = "${var.prefix}-${each.value.nic_name}"
   location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = azurerm_resource_group.resource_group.name
 
   ip_configuration {
     name                          = "ipconfig-${each.key}"
@@ -38,7 +38,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   
   name                  = "${var.prefix}-${each.value.vm_name}"
   location              = azurerm_resource_group.example.location
-  resource_group_name   = azurerm_resource_group.example.name
+  resource_group_name   = azurerm_resource_group.resource_group.name
   size                  = each.value.vm_size
   admin_username        = var.admin_username
   admin_password        = var.admin_password
@@ -75,7 +75,7 @@ resource "azurerm_public_ip" "main" {
   for_each            = var.virtual_machines
   name                = "${var.prefix}-pip-${each.key}"
   location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = azurerm_resource_group.resource_group.name
   allocation_method   = "Dynamic"
 }
 
